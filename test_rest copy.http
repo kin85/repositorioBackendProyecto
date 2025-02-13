@@ -1,0 +1,327 @@
+
+## PRUEBAS PARA UNIDADES DE COMPETENCIA
+## create
+POST http://localhost:8091/api/v1/unidadCompetencia HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "UC7898",
+    "nombre": "Informatica para dummies",
+    "nivel": 1,
+    "modulo_id": 1
+ }
+###
+###
+##  read
+GET http://localhost:8091/api/v1/unidadCompetencia/UC7894 HTTP/1.1
+Content-Type: application/json
+###
+###
+##  update
+PUT  http://localhost:8091/api/v1/unidadCompetencia/UC7894 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "UC7894",
+    "nombre": "Informatica para dummies modificado",
+    "nivel": 1,
+    "modulo_id": 1
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/unidadCompetencia/UC7894 HTTP/1.1
+Content-Type: application/json
+###
+
+
+## PRUEBAS PARA CUESTIONARIOS
+###
+## create
+POST http://localhost:8091/api/v1/cuestionarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "titulo": "Cuestionario para dummies",
+    "unidad_competencia_id": "UC7898"
+ }
+###
+###
+
+##  read por id
+GET http://localhost:8091/api/v1/cuestionarios/1 HTTP/1.1
+Content-Type: application/json
+
+### Leer Cuestionario por Titulo
+GET http://localhost:8091/api/v1/cuestionarios/titulo/Cuestionario para dummies HTTP/1.1
+Content-Type: application/json
+
+##  read por Unidad de competencia
+GET http://localhost:8091/api/v1/cuestionarios/unidadCompetencia/UC7894 HTTP/1.1
+Content-Type: application/json
+###
+###
+##  update
+PUT  http://localhost:8091/api/v1/cuestionarios/7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 7,
+    "titulo": "Cuestionario para dummies modificado",
+    "unidadCompetencia": "UC7894"
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/cuestionarios/7 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+## PRUEBAS PARA MODULOS
+###
+## create
+POST http://localhost:8091/api/v1/modulos HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Desarrollo de aplicaciones web",
+    "nivel": 1,
+    "sector_id": 1
+ }
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/modulos/5 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/modulos/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 5,
+    "nombre": "Desarrollo de aplicaciones web para dummies",
+    "nivel": 3,
+    "sector_id": 1
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/modulos/5 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+
+## PRUEBAS PARA PREGUNTAS
+###
+## create
+POST http://localhost:8091/api/v1/preguntas HTTP/1.1
+Content-Type: application/json
+
+{
+    "texto": "¿Que es una API?",
+    "tipo": "Multiple",
+    "cuestionario_id": 1
+ }
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/preguntas/6 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/preguntas/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 6,
+    "texto": "¿Que es una API?",
+    "tipo": "Texto",
+    "cuestionario_id": 1
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/preguntas/6 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+
+
+## PRUEBAS PARA RESPUESTAS
+###
+## create
+POST http://localhost:8091/api/v1/respuestas HTTP/1.1
+Content-Type: application/json
+
+{
+    "respuesta": "A mi no me preguntes",
+    "pregunta_id": 1,
+    "usuario_id": 1
+ }
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/respuestas/1 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+## delete
+DELETE  http://localhost:8091/api/v1/respuestas/5 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+## PRUEBAS PARA SECTORES
+###
+## create
+POST http://localhost:8091/api/v1/sectores HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Agricultura"
+ }
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/sectores/4 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/sectores/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "nombre": "Agricultura y pesca"
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/sectores/4 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+
+## PRUEBAS PARA ESTADO DE ACREDITACION
+###
+## create
+POST http://localhost:8091/api/v1/estadoAcreditacion HTTP/1.1
+Content-Type: application/json
+
+{
+    "estado": "pendiente",
+    "usuario_id": 1,
+    "modulo_id": 2
+ }
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/estadoAcreditacion/1 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/estadoAcreditacion/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "estado": "aprobado",
+    "usuario_id": 1,
+    "modulo_id": 2
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/estadoAcreditacion/1 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+## PRUEBAS PARA UNIDADES DE COMPETENCIA POR USUARIO
+###
+## create
+POST http://localhost:8091/api/v1/usuarioUnidadesCompetencia HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario_id": 1,
+    "unidades_competencia_hechas_id": "UC001",
+    "estado": "pendiente"
+}
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/usuarioUnidadesCompetencia/1 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/usuarioUnidadesCompetencia/8 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 8,
+    "usuario_id": 1,
+    "unidad_competencia_id": "UC002",
+    "estado": "pendiente"
+ }
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/usuarioUnidadesCompetencia/8 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+
+## PRUEBAS PARA MENSAJES
+###
+## create
+POST http://localhost:8091/api/v1/mensajes HTTP/1.1
+Content-Type: application/json
+
+{
+    "contenido": "Este es un mensaje de prueba",
+    "usuario_id": 1,
+    "acreditacion_id": 1
+}
+###
+###
+##  read por id
+GET http://localhost:8091/api/v1/mensajes/1 HTTP/1.1
+Content-Type: application/json
+###
+###
+
+##  update
+PUT  http://localhost:8091/api/v1/mensajes/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "contenido": "Este es un mensaje de prueba actualizado",
+    "usuario_id": 1,
+    "chat_id": 1
+}
+###
+###
+## delete
+DELETE  http://localhost:8091/api/v1/mensajes/1 HTTP/1.1
+Content-Type: application/json
+###
+###

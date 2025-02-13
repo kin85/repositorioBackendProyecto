@@ -1,0 +1,57 @@
+### CONSULATAS IMPORTANTES
+
+### Leer todos los Cuestionarios
+GET http://localhost:8091/api/v1/cuestionarios HTTP/1.1
+Content-Type: application/json
+
+### Obtener todas las preguntas de un cuestionario
+GET http://localhost:8091/api/v1/preguntas/cuestionario/1 HTTP/1.1
+Content-Type: application/json
+
+### Leer todas las preguntas
+GET http://localhost:8091/api/v1/preguntas HTTP/1.1
+Content-Type: application/json
+
+### Leer todas las respuestas
+GET http://localhost:8091/api/v1/respuestas HTTP/1.1
+Content-Type: application/json
+
+### Leer Todas las UsuarioUnidadCompetencias
+GET http://localhost:8091/api/v1/usuarioUnidadesCompetencia HTTP/1.1
+Content-Type: application/json
+
+### Leer todos los sectores
+GET http://localhost:8091/api/v1/sectores HTTP/1.1
+Content-Type: application/json
+
+### Leer todos los modulos
+GET http://localhost:8091/api/v1/modulos HTTP/1.1
+Content-Type: application/json
+
+### Leer todos los modulos de un sector
+GET http://localhost:8091/api/v1/modulos/sector/1 HTTP/1.1
+Content-Type: application/json
+
+### Ver UC
+GET http://localhost:8091/api/v1/unidadCompetencia HTTP/1.1
+Content-Type: application/json
+
+### Ver UC de un modulo 
+GET http://localhost:8091/api/v1/unidadCompetencia/modulo/1 HTTP/1.1
+Content-Type: application/json
+
+### Ver UC completadas por un usuario POR HACER
+GET http://localhost:8091/api/v1/usuarios/1/unidadCompetencia/completadas HTTP/1.1
+Content-Type: application/json
+
+### Ver todos los mensajes
+GET http://localhost:8091/api/v1/mensajes HTTP/1.1
+Content-Type: application/json
+
+### Ver todos los mensajes de un usuario
+GET http://localhost:8091/api/v1/mensajes/usuario/1 HTTP/1.1
+Content-Type: application/json
+
+### Ver todos los mensajes de una acreditacion
+GET http://localhost:8091/api/v1/mensajes/acreditacion/1 HTTP/1.1
+Content-Type: application/json
