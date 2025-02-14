@@ -130,17 +130,6 @@ NULL, NULL, FALSE, FALSE,
 'No puedes avanzar sin la formación mínima de 200 horas.',
 8, 1);
 
-UPDATE preguntas
-SET explicacion_no = 'Sin nacionalidad, no hay acreditación. PUERTA. Y cierra al salir.'
-WHERE id = 1;
-
-DELETE FROM preguntas 
-WHERE id IN (
-    SELECT id FROM preguntas 
-    ORDER BY id 
-    LIMIT 8
-);
-
 
 -- Insertar usuarios
 INSERT INTO usuarios (nombre, nickname, email, password, password_salt, telefono, fecha_nacimiento, estado) VALUES

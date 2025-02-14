@@ -11,8 +11,9 @@ DROP TABLE IF EXISTS estado_acreditacion CASCADE;
 DROP TABLE IF EXISTS sesiones CASCADE;
 DROP TABLE IF EXISTS usuarios CASCADE;
 DROP TABLE IF EXISTS preguntas CASCADE;
-DROP TABLE IF EXISTS usuario_modulos CASCADE; -- Tabla intermedia usuario-modulo
-DROP TABLE IF EXISTS usuario_unidadescompetencia CASCADE; -- Tabla intermedia usuario-unidadcompetencia
+DROP TABLE IF EXISTS usuario_modulos CASCADE; 
+DROP TABLE IF EXISTS tipo_pregunta;
+DROP TABLE IF EXISTS usuario_unidadescompetencia CASCADE; 
 DROP TABLE IF EXISTS usuarios_unidadescompetencia CASCADE;
 DROP TABLE IF EXISTS mensajes CASCADE;
 
