@@ -10,6 +10,13 @@ import lombok.NoArgsConstructor;
 public class PreguntaEdit {
     private Long id;
     private String texto;
-    private String tipo;
-    private Integer cuestionario_id;
+    private Long tipoId; 
+    private Long cuestionarioId;
+    private Long siguienteSiId; 
+    private Long siguienteNoId;  
+    private boolean finalSi;
+    private boolean finalNo;
+    private String explicacionSi;
+    private String explicacionNo;
+    private int orden;
 }

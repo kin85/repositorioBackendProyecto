@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class RespuestaEdit {
+public class TipoPreguntaEdit {
     private Long id;
-    private String respuesta;
-    private Integer pregunta_id;
-    private Integer usuario_id;
+    private String nombre;
+    private String descripcion;
 }

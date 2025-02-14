@@ -3,9 +3,6 @@ package org.simarro.proyecto.chatbot.controller;
 
 import java.util.List;
 
-import org.simarro.proyecto.chatbot.exception.CustomErrorResponse;
-import org.simarro.proyecto.chatbot.filters.FiltroException;
-import org.simarro.proyecto.chatbot.filters.model.PaginaResponse;
 import org.simarro.proyecto.chatbot.helper.BindingResultHelper;
 import org.simarro.proyecto.chatbot.model.dto.PreguntaEdit;
 import org.simarro.proyecto.chatbot.service.PreguntaService;
@@ -20,14 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -64,25 +55,14 @@ public class PreguntaController {
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "Obtiene todas las preguntas.")
-    @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Lista de preguntas obtenida correctamente", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = PaginaResponse.class)) }),
-        @ApiResponse(responseCode = "400", description = "Bad Request: Errores de filtrado u ordenación (errorCodes: 'BAD_OPERATOR_FILTER','BAD_ATTRIBUTE_ORDER','BAD_ATTRIBUTE_FILTER','BAD_FILTER'", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = CustomErrorResponse.class)) }),
-        @ApiResponse(responseCode = "500", description = "Error interno del servidor")
-    })
     @GetMapping
-    public ResponseEntity<PaginaResponse<PreguntaEdit>> getAllPreguntas(
-                        @RequestParam(required = false) String[] filter,
-                        @RequestParam(defaultValue = "0") int page,
-                        @RequestParam(defaultValue = "3") int size,
-                        @RequestParam(defaultValue = "id") List<String> sort) throws FiltroException {
-        return ResponseEntity.ok(preguntaService.findAll(filter, page, size, sort));
+    public List<PreguntaEdit> getAllPreguntas() {
+        return preguntaService.getAllPreguntas();
     }
 
-    @GetMapping("cuestionario/{id}")
-    public ResponseEntity<List<PreguntaEdit>> verPreguntasCuestionario(@PathVariable Long id) {
-        return ResponseEntity.ok(preguntaService.obtenerPreguntasPorCuestionario(id));
+    @GetMapping("/cuestionario/{cuestionarioId}")
+    public ResponseEntity<List<PreguntaEdit>> obtenerPreguntasPorCuestionario(@PathVariable Long cuestionarioId) {
+        List<PreguntaEdit> preguntas = preguntaService.obtenerPreguntasPorCuestionario(cuestionarioId);
+        return preguntas.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(preguntas);
     }
 }
