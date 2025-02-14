@@ -1,5 +1,7 @@
 package org.simarro.proyecto.chatbot.model.db;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,11 +26,15 @@ public class EstadoAcreditacionDb {
     private long id;
     private String estado;
     @Column(name = "fecha_actualizacion")
-    private java.sql.Timestamp fecha;
+    private LocalDateTime fecha_actualizacion = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private UsuarioDb usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "asesor_id")
+    private UsuarioDb asesor;
 
     @OneToOne
     @JoinColumn(name = "modulo_id")

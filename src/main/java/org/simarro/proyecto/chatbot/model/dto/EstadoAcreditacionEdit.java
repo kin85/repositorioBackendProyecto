@@ -15,4 +15,5 @@ public class EstadoAcreditacionEdit {
     private LocalDateTime fecha_actualizacion = LocalDateTime.now();
     private Integer usuario_id;
     private Integer modulo_id;
+    private Integer asesor_id;
 }

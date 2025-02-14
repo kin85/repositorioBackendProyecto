@@ -9,6 +9,7 @@ import org.simarro.proyecto.chatbot.model.db.SesionDb;
 import org.simarro.proyecto.chatbot.model.dto.SesionEdit;
 import org.simarro.proyecto.chatbot.service.SesionService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/sesiones")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SesionController {
 
     private final SesionService sesionService;

@@ -17,10 +17,12 @@ public interface EstadoAcreditacionMapper {
     EstadoAcreditacionMapper INSTANCE = Mappers.getMapper(EstadoAcreditacionMapper.class);
 
     @Mapping(source = "usuario.id", target = "usuario_id")
+    @Mapping(source = "asesor.id", target = "asesor_id")
     @Mapping(source = "modulo.id", target = "modulo_id")
     EstadoAcreditacionEdit estadoAcreditacionDbEstadoAcreditacionEdit(EstadoAcreditacionDb estadoAcreditacionDb);
 
     @Mapping(source = "usuario_id", target = "usuario.id")
+    @Mapping(source = "asesor_id", target = "asesor.id")
     @Mapping(source = "modulo_id", target = "modulo.id")
     EstadoAcreditacionDb estadoAcreditacionEditEstadoAcreditacionDb(EstadoAcreditacionEdit estadoAcreditacionEdit);
 

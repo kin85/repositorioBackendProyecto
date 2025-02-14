@@ -223,7 +223,8 @@ Content-Type: application/json
 {
     "estado": "pendiente",
     "usuario_id": 1,
-    "modulo_id": 2
+    "modulo_id": 2,
+    "asesor_id": 2
  }
 ###
 ###
